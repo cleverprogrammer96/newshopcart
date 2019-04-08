@@ -12,8 +12,8 @@ app.use('/',
   express.static(__dirname + '/public')
 )
 
-app.use('/api/vendors',require(__dirname+'/../Vendor/VendorAPI').route);
-
+app.use('/api/vendors',require(__dirname+'/../Domains/Vendor/VendorAPI').route);
+app.use('/api/products',require(__dirname+'/../Domains/Product/ProductAPI').route);
 
 // app.get('/todos', async (req, res) => {
 
