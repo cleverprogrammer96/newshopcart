@@ -1,5 +1,6 @@
 const route =  require('express').Router();
 const Vendors=require(__dirname+'/VendorModel').Vendors;
+const Product=require(__dirname+'/../Product/ProductModel.js').Products;
 
 route.get('/',(req,res)=>{
     Vendors.findAll().then((vendors)=>{
@@ -60,11 +61,16 @@ route.delete('/:id',(req,res)=>{
     Vendors.findByPk(id).then((vendor) => {
         if(vendor)
         {
-            Vendors.destroy({
+            Vendors.destroy({               
                 where: {
                     id:id
                 }
-            }).then(()=>{              
+            }).then(()=>{   
+                Product.destroy({
+                    where:{
+                        VendorId:null
+                    }
+                })
                 res.send({success:true,message:'deleted successfully'})
             })
             .catch((error)=>{

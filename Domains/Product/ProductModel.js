@@ -1,5 +1,7 @@
 const database = require(__dirname+'/../../Config/databaseConfig.js').database;
 const Sequelize = require(__dirname+'/../../Config/databaseConfig.js').Sequelize;
+const Vendor=require(__dirname+'/../Vendor/VendorModel.js').Vendors;
+
 
 
   const Products = database.define('product', {
@@ -14,11 +16,9 @@ const Sequelize = require(__dirname+'/../../Config/databaseConfig.js').Sequelize
     quantity:{
       type:Sequelize.INTEGER,
       allowNull:false   
-    }
+    },
+   
   })
-
- 
-
   module.exports = {
    Products
 }

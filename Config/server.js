@@ -14,6 +14,9 @@ app.use('/',
 
 app.use('/api/vendors',require(__dirname+'/../Domains/Vendor/VendorAPI').route);
 app.use('/api/products',require(__dirname+'/../Domains/Product/ProductAPI').route);
+app.use('/api/users',require(__dirname+'/../Domains/User/UserAPI').route);
+
+
 
 // app.get('/todos', async (req, res) => {
 

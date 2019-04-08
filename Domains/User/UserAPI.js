@@ -1,9 +1,9 @@
 const route =  require('express').Router();
-const Products=require(__dirname+'/ProductModel.js').Products;
+const Users=require(__dirname+'/UserModel.js').Users;
 
 route.get('/',(req,res)=>{
-    Products.findAll().then((product)=>{
-        res.send({success:'true',data:product})       
+    Users.findAll().then((user)=>{
+        res.send({success:'true',data:user})       
     })
     .catch(()=>{
         res.send({success:'false',data:null})
@@ -11,17 +11,17 @@ route.get('/',(req,res)=>{
 })
 
 route.post('/',(req,res)=>{
-    var productName=req.body.name;
-    var price=parseFloat(req.body.price);
-    var quantity=parseInt(req.body.quantity);
-    var vendorId=parseInt(req.body.vendorId);
-    Products.findOrCreate(
+    var firstname=req.body.firstname;
+    var lastname=req.body.lastname;
+    var email=req.body.email;
+    var password=req.body.password;
+    Users.findOrCreate(
         {
          where:{
-             name:productName,
-             price:price,
-             quantity:quantity,
-             VendorId:vendorId
+            firstname:firstname,
+             lastname:lastname,
+             email:email,
+             password:password
          }           
         }         
      ).then(([data,created])=>{
@@ -31,7 +31,7 @@ route.post('/',(req,res)=>{
         }
         else
         {
-            res.send({success:'false',message:'product already exists'});
+            res.send({success:'false',message:'user already exists'});
         }
         
      })
@@ -44,13 +44,13 @@ route.post('/',(req,res)=>{
 
 route.get('/:id',(req,res)=>{
 let id = req.params.id;
-Products.findByPk(id).then((product) => {
-   if(product)
+Users.findByPk(id).then((user) => {
+   if(user)
    {
-    res.send({success:true,data:product,message:'fetched successfully'})
+    res.send({success:true,data:user,message:'fetched successfully'})
    }else
    {
-    res.send({success:false,data:null,message:'no product exists with this id'})
+    res.send({success:false,data:null,message:'no user exists with this id'})
    }
    
   
@@ -63,10 +63,10 @@ Products.findByPk(id).then((product) => {
 
 route.delete('/:id',(req,res)=>{
     let id = req.params.id;
-    Products.findByPk(id).then((product) => {
-        if(product)
+    Users.findByPk(id).then((user) => {
+        if(user)
         {
-            Products.destroy({
+            Users.destroy({
                 where: {
                     id:id
                 }
@@ -79,7 +79,7 @@ route.delete('/:id',(req,res)=>{
          
         }else
         {
-         res.send({success:false,message:'no product exists with this id'})
+         res.send({success:false,message:'no user exists with this id'})
         }             
        })
        .catch((error)=>{
