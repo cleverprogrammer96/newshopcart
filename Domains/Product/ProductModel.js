@@ -17,6 +17,12 @@ const Vendor=require(__dirname+'/../Vendor/VendorModel.js').Vendors;
       type:Sequelize.INTEGER,
       allowNull:false   
     },
+    vendorname:{
+      
+        type: Sequelize.STRING,
+        allowNull: false
+    
+    }
    
   })
   module.exports = {

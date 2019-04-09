@@ -1,8 +1,9 @@
 const route =  require('express').Router();
 const Products=require(__dirname+'/ProductModel.js').Products;
+const Vendor=require(__dirname+'/../Vendor/VendorAPI.js').Vendors;
 
 route.get('/',(req,res)=>{
-    Products.findAll().then((product)=>{
+    Products.findAll().then((product)=>{           
         res.send({success:'true',data:product})       
     })
     .catch(()=>{
@@ -15,13 +16,15 @@ route.post('/',(req,res)=>{
     var price=parseFloat(req.body.price);
     var quantity=parseInt(req.body.quantity);
     var vendorId=parseInt(req.body.vendorId);
+    var vendorname=req.body.vendorname;
     Products.findOrCreate(
         {
          where:{
              name:productName,
              price:price,
              quantity:quantity,
-             VendorId:vendorId
+             VendorId:vendorId,
+             vendorname:vendorname
          }           
         }         
      ).then(([data,created])=>{
