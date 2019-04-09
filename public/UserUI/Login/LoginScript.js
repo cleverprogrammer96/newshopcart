@@ -7,7 +7,11 @@ $('#login').click(()=>{
    (data)=>{
    if(data.success){
       alert('you are logged in');
-      
+      localStorage.setItem('useremail',data.data.email)
+      localStorage.setItem('userid',data.data.id)
+
+
+       window.location = "http://localhost:1156/ProductUI/loginedHomePage/Product.html";
    }
    else
    {

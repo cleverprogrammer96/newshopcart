@@ -1,7 +1,7 @@
 const database = require(__dirname+'/../../Config/databaseConfig.js').database;
 const Sequelize = require(__dirname+'/../../Config/databaseConfig.js').Sequelize;
 const Product=require(__dirname+'/../Product/ProductModel.js').Products;
-
+const Cart=require(__dirname+'/../Cart/CartModel.js').Carts;
 
   const Users = database.define('user', {
     firstname: {
@@ -23,8 +23,8 @@ const Product=require(__dirname+'/../Product/ProductModel.js').Products;
     }
   })
 
-  Product.belongsToMany(Users, {through: 'Cart'});
-  Users.belongsToMany(Product, {through: 'Cart'});
+  Product.belongsToMany(Users,{through : Cart});
+  Users.belongsToMany(Product, {through : Cart});
 
   module.exports = {
    Users

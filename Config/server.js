@@ -15,6 +15,7 @@ app.use('/',
 app.use('/api/vendors',require(__dirname+'/../Domains/Vendor/VendorAPI').route);
 app.use('/api/products',require(__dirname+'/../Domains/Product/ProductAPI').route);
 app.use('/api/users',require(__dirname+'/../Domains/User/UserAPI').route);
+app.use('/api/carts',require(__dirname+'/../Domains/Cart/CartAPI').route);
 
 
 database.sync()
