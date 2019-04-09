@@ -2,10 +2,17 @@ $('#login').click(()=>{
     let loginuser={};
     loginuser.email=$('#emailId').val();
     loginuser.password=$('#password').val();
-
-   $.post('http://localhost:1156/api/users/login',user,
+      console.log(loginuser)
+   $.post('http://localhost:1156/api/users/login/',loginuser,
    (data)=>{
-      console.log(data);
+   if(data.success){
+      alert('you are logged in');
+      
+   }
+   else
+   {
+      alert(data.message)
+   }
    }
    )
 })

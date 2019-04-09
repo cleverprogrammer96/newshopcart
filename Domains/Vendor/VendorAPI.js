@@ -4,10 +4,10 @@ const Product=require(__dirname+'/../Product/ProductModel.js').Products;
 
 route.get('/',(req,res)=>{
     Vendors.findAll().then((vendors)=>{
-        res.send({success:'true',data:vendors})       
+        res.send({success:true,data:vendors,message:'fetched successfully..'})       
     })
-    .catch(()=>{
-        res.send({success:'false',data:null})
+    .catch((error)=>{
+        res.send({success:false,data:null,message:error})
     })
 })
 
@@ -22,16 +22,16 @@ route.post('/',(req,res)=>{
      ).then(([data,created])=>{
         if(created)
         {
-            res.send({success:'true',message:'Entered successfully'});
+            res.send({success:true,message:'Entered successfully'});
         }
         else
         {
-            res.send({success:'false',message:'Vendor already exists'});
+            res.send({success:false,message:'Vendor already exists'});
         }
         
      })
      .catch((error)=>{
-         res.send({success:'false',message:error})
+         res.send({success:false,message:error})
      })
      
     
@@ -74,7 +74,7 @@ route.delete('/:id',(req,res)=>{
                 res.send({success:true,message:'deleted successfully'})
             })
             .catch((error)=>{
-                res.send({success:false,data:null,message:error})
+                res.send({success:false,message:error})
             })
          
         }else

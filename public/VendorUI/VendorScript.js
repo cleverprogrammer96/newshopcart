@@ -8,9 +8,14 @@
               `<li> ${vendor.name}   <button onclick="deleteThisVendor(${vendor.id})">X</button></li>`
             )
           }
-     }     
+     }
+     else
+     {
+       alert(data.message);
+     }   
       })
     }
+    refreshList()
     function deleteThisVendor(id)
     {
       let path='http://localhost:1156/api/vendors/'+id;
@@ -19,15 +24,16 @@
         type: 'DELETE',
         success: (data) => {
           if (data.success) {
+            alert('deleted successfully')
             refreshList()
           } else {
-            alert('Some error occurred')
+            alert(data.message)
           }
         }
     });
       
     }
-    refreshList()
+ 
   
     $('#addVendorButton').click(() => {
       $.post(
@@ -37,9 +43,10 @@
         },
         (data) => {
           if (data.success) {
+            alert('added successfully')
             refreshList()
           } else {
-            alert('Some error occurred')
+            alert(data.message)
           }
         }
       )

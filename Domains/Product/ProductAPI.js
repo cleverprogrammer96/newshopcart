@@ -4,10 +4,10 @@ const Vendor=require(__dirname+'/../Vendor/VendorAPI.js').Vendors;
 
 route.get('/',(req,res)=>{
     Products.findAll().then((product)=>{           
-        res.send({success:'true',data:product})       
+        res.send({success:true,data:product,message:'fetched successfully'})       
     })
-    .catch(()=>{
-        res.send({success:'false',data:null})
+    .catch((error)=>{
+        res.send({success:false,data:null,message:error})
     })
 })
 
@@ -30,16 +30,16 @@ route.post('/',(req,res)=>{
      ).then(([data,created])=>{
         if(created)
         {
-            res.send({success:'true',message:'Entered successfully'});
+            res.send({success:true,message:'Entered successfully'});
         }
         else
         {
-            res.send({success:'false',message:'product already exists'});
+            res.send({success:false,message:'product already exists'});
         }
         
      })
      .catch((error)=>{
-         res.send({success:'false',message:error})
+         res.send({success:false,message:error})
      })
      
     
@@ -77,7 +77,7 @@ route.delete('/:id',(req,res)=>{
                 res.send({success:true,message:'deleted successfully'})
             })
             .catch((error)=>{
-                res.send({success:false,data:null,message:error})
+                res.send({success:false,message:error})
             })
          
         }else
@@ -86,7 +86,7 @@ route.delete('/:id',(req,res)=>{
         }             
        })
        .catch((error)=>{
-           res.send({success:false,data:null,message:error})
+           res.send({success:false,message:error})
        })
       
     })
