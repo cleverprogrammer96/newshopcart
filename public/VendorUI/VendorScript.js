@@ -5,7 +5,7 @@
      {
         for (let vendor of data.data) {
             $('#vendorList').append(
-              `<li> ${vendor.name}   <button onclick="deleteThisVendor(${vendor.id})">X</button></li>`
+              `<li>VendorName :  ${vendor.name}   <button onclick="deleteThisVendor(${vendor.id})">X</button></li>`
             )
           }
      }

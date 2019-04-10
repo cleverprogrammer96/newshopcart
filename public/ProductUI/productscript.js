@@ -7,7 +7,7 @@ function refreshList() {
      
       for (let product of data.data) {
           $('#productList').append(
-            `<li> ${product.name}  ${product.price}  ${product.quantity} ${product.vendorname}  <button onclick="deleteThisProduct(${product.id})">X</button></li>`
+            `<li> Product Name : ${product.name} Price : ${product.price} Quantity : ${product.quantity} VendorName :  ${product.vendorname}  <button onclick="deleteThisProduct(${product.id})">X</button></li>`
           )
         }
    }  

@@ -1,3 +1,5 @@
+
+
 function refreshList() {
    
     $.get('http://localhost:1156/api/products/', (data) => {
@@ -8,7 +10,7 @@ function refreshList() {
       for (let product of data.data) {
         
           $('#productList').append(
-            `<li> ${product.name}  ${product.price}  ${product.quantity} ${product.vendorname}  <button onclick="addToCart(${product.id})">Add To Cart</button></li>`
+            `<li> ProductName : ${product.name}   Price : ${product.price} Quantity :  ${product.quantity} VendorName : ${product.vendorname} <button onclick="addToCart(${product.id})">Add To Cart</button></li>`
           )
         }
    }  
@@ -27,8 +29,8 @@ function refreshList() {
     let path='http://localhost:1156/api/carts';
     
     let userId=localStorage['userid'];
-    quantity=123;
-    
+   // quantity=$('#quant').val();
+    quantity=1;
     if(userId===undefined)
     {
       console.log('user not logined');
@@ -57,7 +59,12 @@ function refreshList() {
   }
 
 
-   
+   $('#logOut').click(()=>{
+     
+     alert('you are going to log out')
+     localStorage.setItem('userid',null);
+     window.location='http://localhost:1156/';
+   })
 
 
   

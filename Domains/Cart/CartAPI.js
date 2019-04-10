@@ -1,11 +1,42 @@
 const route =  require('express').Router();
 
 const Cart=require(__dirname+'/CartModel.js').Carts;
-
+const Product=require(__dirname+'/../Product/ProductModel.js').Products;
 route.get('/',(req,res)=>{
     
     Cart.findAll().then((cart)=>{
         res.send({success:true,data:cart,message:'fetched successfully'})
+    })
+    .catch((error)=>{
+        res.send({success:false,data:null,message:error})
+    })
+})
+
+route.get('/:userId',(req,res)=>{
+    let userId=req.params.userId
+   
+    Cart.findAll({
+        where:{
+            userId:userId
+        }
+    }).then((products)=>{
+       // let userProducts=[];
+    // let newProduct={};
+    //   for(let i=0;i<products.length;++i){
+    //       product=products[i]
+    //         let productId=product.productId;
+    //         Product.findByPk(productId).then((myProduct)=>{
+    //             newProduct.quantity=product.quantity;
+    //             newProduct.price=myProduct.price;
+    //             newProduct.vendorName=myProduct.vendorname;
+    //             newProduct.name=myProduct.name;
+                
+    //         })
+    //      // console.log()
+    //         userProducts.push(newProduct);
+    //       }
+
+        res.send({success:true,data:products,message:'fetched successfully'})
     })
     .catch((error)=>{
         res.send({success:false,data:null,message:error})
