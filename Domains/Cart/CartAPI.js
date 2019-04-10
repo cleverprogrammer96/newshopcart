@@ -20,22 +20,7 @@ route.get('/:userId',(req,res)=>{
             userId:userId
         }
     }).then((products)=>{
-       // let userProducts=[];
-    // let newProduct={};
-    //   for(let i=0;i<products.length;++i){
-    //       product=products[i]
-    //         let productId=product.productId;
-    //         Product.findByPk(productId).then((myProduct)=>{
-    //             newProduct.quantity=product.quantity;
-    //             newProduct.price=myProduct.price;
-    //             newProduct.vendorName=myProduct.vendorname;
-    //             newProduct.name=myProduct.name;
-                
-    //         })
-    //      // console.log()
-    //         userProducts.push(newProduct);
-    //       }
-
+       
         res.send({success:true,data:products,message:'fetched successfully'})
     })
     .catch((error)=>{
@@ -44,10 +29,13 @@ route.get('/:userId',(req,res)=>{
 })
 
 
-route.post('/delete/',(req,res)=>{
+route.delete('/delete',(req,res)=>{
    
-    let pid=req.body.productId;
-   let uid=req.body.userId;
+//     let pid=req.body.productId;
+//    let uid=req.body.userId;
+     let pid=req.query.productId;
+    let uid=req.query.userId;
+  
    let productId=parseInt(pid);
    let userId=parseInt(uid);
    Cart.findOne({
@@ -90,7 +78,7 @@ route.post('/',(req,res)=>{
     let productId=parseInt(pid);
     let userId=parseInt(uid);
     let quantity=parseInt(quan);
-  
+    console.log('quant  '+quantity)
     
   
     Cart.findOne(

@@ -14,7 +14,7 @@ function refreshList() {
         <h6>Vendor : ${product.vendorname}</h6>
         <h6>Price : Rs.${product.price}</h6>
         <h6>Quantity : ${product.quantity}</h6>
-        <button class="btn btn-primary" onclick="deleteThisProduct(${product.id})">Delete</button>
+        <button class="btn btn-danger" onclick="deleteThisProduct(${product.id})">Delete</button>
       </div>
     </div>
   </div> `
