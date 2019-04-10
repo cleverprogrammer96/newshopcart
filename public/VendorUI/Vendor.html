@@ -5,20 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vendors</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
     
-                
-           <label for="vendorName"> FirstName</label>
-           <input type="text" id="vendorName"  placeholder="Enter Vendor Name">
-           <br>       
-           
-        <button  id="addVendorButton">Add Vendor</button>
-        <input type="button" value="BackToPreviousPage" onclick="window.history.back()" /> 
-
-      <ul id="vendorList"></ul>
-<script src="jquery.js"></script>      
-<script src="VendorScript.js"></script>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="#">Phone Shopping</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Vendors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:1156/UserUI/Login/Login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:1156/UserUI/SignUp/SignUp.html">SignUp</a>
+            </li>    
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1156/ProductUI/Product.html">Products<span class="sr-only">(current)</span></a>
+              </li>  
+          </ul>     
+        </div>
+      </nav> 
+  <main role="main" class="container">
+    <div class="jumbotron">
+      <h1>Vendors</h1>
+      <div class="input-group">
+        <input type="text" class="form-control" id="vendorName" placeholder="Enter Vendor Name">
+        <div class="input-group-append">
+          <button id="addVendorButton" class="btn btn-secondary">Add New Vendor</button>
+        </div>
+      </div>
+     
+    </div>
+  </main>
+  <!-- <input type="button" value="BackToPreviousPage" onclick="window.history.back()" />  -->
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">   
+      <ul id="vendorList" class="list-group mb-3">
+      </ul>
+    </div>
+      
+        
+  </div>
+    
+  <script src="jquery.js"></script>   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>   
+  <script src="VendorScript.js"></script>
 
 </body>
 </html>

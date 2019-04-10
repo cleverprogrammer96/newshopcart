@@ -4,10 +4,20 @@ function refreshList() {
       $('#productList').empty()
    if(data.success)
    {
-     
+    
       for (let product of data.data) {
           $('#productList').append(
-            `<li> Product Name : ${product.name} Price : ${product.price} Quantity : ${product.quantity} VendorName :  ${product.vendorname}  <button onclick="deleteThisProduct(${product.id})">X</button></li>`
+            `<div class="col-sm-3">
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title">Name : ${product.name}</h5>
+        <h6>Vendor : ${product.vendorname}</h6>
+        <h6>Price : Rs.${product.price}</h6>
+        <h6>Quantity : ${product.quantity}</h6>
+        <button class="btn btn-primary" onclick="deleteThisProduct(${product.id})">Delete</button>
+      </div>
+    </div>
+  </div> `
           )
         }
    }  

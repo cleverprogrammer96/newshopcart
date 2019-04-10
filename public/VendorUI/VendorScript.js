@@ -5,7 +5,16 @@
      {
         for (let vendor of data.data) {
             $('#vendorList').append(
-              `<li>VendorName :  ${vendor.name}   <button onclick="deleteThisVendor(${vendor.id})">X</button></li>`
+
+        `<li class="list-group-item  d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">${vendor.name}</h6>
+           
+          </div>
+          <span class="text-muted"><button onclick="deleteThisVendor(${vendor.id})">X</button></span>
+        </li>`
+
+              // `<li>VendorName :  ${vendor.name}   <button onclick="deleteThisVendor(${vendor.id})">X</button></li>`
             )
           }
      }
