@@ -88,4 +88,10 @@ function populateDropDown()
       }
     )
   })
+  $('#logOut').click(()=>{
+     
+    alert('you are going to log out')
+    localStorage.setItem('userid',null);
+    window.location='http://localhost:1156/';
+  })
 
