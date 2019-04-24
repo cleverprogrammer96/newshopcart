@@ -17,11 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SalodhiaRishav/ShoppingCartAssignment.git"
+    "url": "git+https://github.com/smartprogrammer96/e-Shopping-Site-Assignment.git"
   },
   "bugs": {
-    "url": "https://github.com/SalodhiaRishav/ShoppingCartAssignment/issues"
+    "url": "https://github.com/smartprogrammer96/e-Shopping-Site-Assignment/issues"
   },
-  "homepage": "https://github.com/SalodhiaRishav/ShoppingCartAssignment#readme",
+  "homepage": "https://github.com/smartprogrammer96/e-Shopping-Site-Assignment#readme",
   "devDependencies": {}
 }
