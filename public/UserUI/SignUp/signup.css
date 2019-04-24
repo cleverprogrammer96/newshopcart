@@ -3,6 +3,10 @@ body {
   height: 100%;
 }
 
+
+h1{
+  color : WHITE ;
+}
 .bdy{
   display: -ms-flexbox;
   display: flex;
@@ -10,7 +14,7 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
+  background-color: #0a0b0c;
 }
 
 .form-signin {

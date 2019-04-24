@@ -4,13 +4,24 @@
   "description": "node assignment",
   "main": "Config/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
     "sequelize": "^5.2.12",
-    "sqlite": "^3.0.3"
-  }
+    "sequelizer": "^1.1.3",
+    "sqlite": "^3.0.3",
+    "sqlite3": "^4.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SalodhiaRishav/ShoppingCartAssignment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SalodhiaRishav/ShoppingCartAssignment/issues"
+  },
+  "homepage": "https://github.com/SalodhiaRishav/ShoppingCartAssignment#readme",
+  "devDependencies": {}
 }
