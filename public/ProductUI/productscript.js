@@ -1,6 +1,6 @@
 function refreshList() {
    
-    $.get('http://localhost:1156/api/products/', (data) => {
+    $.get('/api/products/', (data) => {
       $('#productList').empty()
    if(data.success)
    {
@@ -31,7 +31,7 @@ function refreshList() {
 
 function populateDropDown()
 {
-  $.get('http://localhost:1156/api/vendors/', (data) => {
+  $.get('/api/vendors/', (data) => {
      
     if(data.success)
     {
@@ -46,7 +46,7 @@ function populateDropDown()
 }
   function deleteThisProduct(id)
   {
-    let path='http://localhost:1156/api/products/'+id;
+    let path='/api/products/'+id;
     $.ajax({
       url: path,
       type: 'DELETE',
@@ -76,8 +76,7 @@ function populateDropDown()
     newProduct.vendorname=$('#vendorDropDown option:selected').text()
 
   
-    $.post(
-       'http://localhost:1156/api/products/',newProduct,  
+    $.post('/api/products/',newProduct,  
       (data) => {
         if (data.success) {
           refreshList()
@@ -92,6 +91,6 @@ function populateDropDown()
      
     alert('you are going to log out')
     localStorage.setItem('userid',null);
-    window.location='http://localhost:1156/';
+    window.location= '/';
   })
 
