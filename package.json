@@ -1,10 +1,10 @@
 {
   "name": "shoppingcartproject",
-  "version": "1.0.0",
+  "version": "10.15.3",
   "description": "node assignment",
   "main": "Config/server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node Config/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,8 +12,7 @@
     "express": "^4.16.4",
     "sequelize": "^5.2.12",
     "sequelizer": "^1.1.3",
-    "sqlite": "^3.0.3",
-    "sqlite3": "^4.0.6"
+    "sqlite": "^3.0.3"
   },
   "repository": {
     "type": "git",
